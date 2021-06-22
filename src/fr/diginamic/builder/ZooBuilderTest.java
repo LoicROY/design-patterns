@@ -5,7 +5,9 @@ public class ZooBuilderTest {
         ZooBuilder zooBuilder = new ZooBuilder("zoo 1");
         zooBuilder
                 .appendZone("zone 1", 3)
-                .appendZone("zone 2", 2);
+                .appendZone("zone 1", 3)
+                .appendZone("zone 2", 3);
+
         try {
             zooBuilder
                     .appendAnimal("zone 1", new Animal("animal 1"))
@@ -20,6 +22,9 @@ public class ZooBuilderTest {
 
             zooBuilder
                     .appendAnimal("zone 3", new Animal("animal 7"));
+            zooBuilder
+                    .appendAnimal("zone 3", null)
+                    .appendAnimal(null, new Animal("animal 8"));
 
             System.out.println(zooBuilder.get());
         } catch (Exception e) {
